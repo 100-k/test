@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>video</title>
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* 透明なタップ用レイヤー */
+#tap {
+  position: fixed;
+  inset: 0;
+}
+</style>
+</head>
+
+<body>
+
+<video id="v" playsinline preload="auto" poster="thumb.jpg">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<div id="tap"></div>
+
+<script>
+const v = document.getElementById("v");
+const tap = document.getElementById("tap");
+
+// 最初のタップで再生
+tap.addEventListener("click", () => {
+  v.muted = false;
+  v.play();
