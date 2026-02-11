@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  height: 100%;
+  overflow: hidden;
+}
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: auto;
+  pointer-events: none; /* ←これが効く */
+}
+</style>
+</head>
+
+<body>
+
+<video id="v" playsinline preload="auto">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<script>
+const v = document.getElementById("v");
+
+// 画面どこでもタップで再生
+document
